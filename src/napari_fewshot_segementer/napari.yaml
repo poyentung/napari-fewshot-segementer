@@ -1,0 +1,41 @@
+name: napari-fewshot-segementer
+display_name: Few-shot Learning Segmenter
+contributions:
+  commands:
+    - id: napari-fewshot-segementer.get_reader
+      python_name: napari_fewshot_segementer._reader:napari_get_reader
+      title: Open data with Few-shot Learning Segmenter
+    - id: napari-fewshot-segementer.write_multiple
+      python_name: napari_fewshot_segementer._writer:write_multiple
+      title: Save multi-layer data with Few-shot Learning Segmenter
+    - id: napari-fewshot-segementer.write_single_image
+      python_name: napari_fewshot_segementer._writer:write_single_image
+      title: Save image data with Few-shot Learning Segmenter
+    - id: napari-fewshot-segementer.make_qwidget
+      python_name: napari_fewshot_segementer._widget:ExampleQWidget
+      title: Make example QWidget
+    - id: napari-fewshot-segementer.make_magic_widget
+      python_name: napari_fewshot_segementer._widget:example_magic_widget
+      title: Make example magic widget
+    - id: napari-fewshot-segementer.make_func_widget
+      python_name: napari_fewshot_segementer._widget:example_function_widget
+      title: Make example function widget
+  readers:
+    - command: napari-fewshot-segementer.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy']
+  writers:
+    - command: napari-fewshot-segementer.write_multiple
+      layer_types: ['image*','labels*']
+      filename_extensions: []
+    - command: napari-fewshot-segementer.write_single_image
+      layer_types: ['image']
+      filename_extensions: ['.npy']
+  widgets:
+    - command: napari-fewshot-segementer.make_qwidget
+      display_name: Example QWidget
+    - command: napari-fewshot-segementer.make_magic_widget
+      display_name: Example Magic Widget
+    - command: napari-fewshot-segementer.make_func_widget
+      autogenerate: true
+      display_name: Example Function Widget
